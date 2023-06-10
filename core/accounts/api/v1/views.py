@@ -9,11 +9,10 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth import get_user_model
 # from ...models import Profile
-# from django.shortcuts import get_object_or_404
-
-# from rest_framework_simplejwt.tokens import RefreshToken
-# import jwt
-# from jwt.exceptions import ExpiredSignatureError, InvalidSignatureError
+from django.shortcuts import get_object_or_404
+from rest_framework_simplejwt.tokens import RefreshToken
+import jwt
+from jwt.exceptions import ExpiredSignatureError, InvalidSignatureError
 from django.conf import settings
 
 User = get_user_model()

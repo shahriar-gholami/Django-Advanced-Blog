@@ -1,7 +1,0 @@
-django >3.2,<3.3
-python-decouple
-pillow
-djangorestframework
-markdown 
-django-filter
-djangorestframework-simplejwt
