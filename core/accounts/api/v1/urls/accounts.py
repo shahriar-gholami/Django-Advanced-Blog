@@ -1,12 +1,11 @@
 from django.urls import path, include
-from . import views
+from .. import views
 #from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 from rest_framework_simplejwt.views import (TokenRefreshView,TokenVerifyView)
 
 urlpatterns = [
-    path("profile/", views.ProfileApiView.as_view(), name="profile"),
     # registration
     path("registration/",views.RegistrationApiView.as_view(),name="registration"),
     # path("test-email", views.TestEmailSend.as_view(), name="test-email"),
