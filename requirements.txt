@@ -24,8 +24,8 @@ djoser
 # # deployment module
 # gunicorn
 
-# # email third party modules
-# django-mail-templated
+# email third party modules
+django-mail-templated
 
 # # refactoring and tests
 # black
