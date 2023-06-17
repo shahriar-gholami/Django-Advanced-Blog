@@ -5,7 +5,6 @@ from django.dispatch import receiver
 from django.conf import settings
 from .users import User
 
-    
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

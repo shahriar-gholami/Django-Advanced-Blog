@@ -75,9 +75,9 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         validated_data["email"] = self.user.email
         validated_data["user_id"] = self.user.id
         return validated_data
-    
-class ChangePasswordSerializer(serializers.Serializer):
 
+
+class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True)
     new_password1 = serializers.CharField(required=True)
@@ -92,6 +92,7 @@ class ChangePasswordSerializer(serializers.Serializer):
             raise serializers.ValidationError({"new_password": list(e.messages)})
 
         return super().validate(attrs)
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     email = serializers.CharField(source="user.email", read_only=True)
@@ -108,6 +109,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         )
         read_only_fields = ["email"]
 
+
 class ActivationResendSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
 
@@ -123,5 +125,3 @@ class ActivationResendSerializer(serializers.Serializer):
             )
         attrs["user"] = user_obj
         return super().validate(attrs)
-    
-   

@@ -77,6 +77,7 @@ class CustomDiscardAuthToken(APIView):
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
+
 class ChangePasswordApiView(generics.GenericAPIView):
     model = User
     permission_classes = [IsAuthenticated]
@@ -104,7 +105,8 @@ class ChangePasswordApiView(generics.GenericAPIView):
                 status=status.HTTP_200_OK,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
+
 class ProfileApiView(generics.RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
@@ -114,9 +116,9 @@ class ProfileApiView(generics.RetrieveUpdateAPIView):
         queryset = self.get_queryset()
         obj = get_object_or_404(queryset, user=self.request.user)
         return obj
-    
+
+
 class TestEmailSend(generics.GenericAPIView):
-    
     def get(self, request, *args, **kwargs):
         # send_mail(
         #     'Test Subject',
@@ -128,9 +130,15 @@ class TestEmailSend(generics.GenericAPIView):
         # send_mail('email/hello.tpl', {'name':'shahriar'}, 'shahriargholami73@yahoo.com',['yashtopol@gmail.com'])
         # return Response("Email Sent")
         #####################
-        email_obj = EmailMessage('email/hello.tpl', {'name':'shahriar'}, 'shahriargholami73@yahoo.com',['yashtopol@gmail.com'])
+        email_obj = EmailMessage(
+            "email/hello.tpl",
+            {"name": "shahriar"},
+            "shahriargholami73@yahoo.com",
+            ["yashtopol@gmail.com"],
+        )
         EmailThread(email_obj).start()
         return Response("Email Sent")
+
 
 class ActivationApiView(APIView):
     def get(self, request, token, *args, **kwargs):
@@ -181,26 +189,3 @@ class ActivationResendApiView(generics.GenericAPIView):
     def get_tokens_for_user(self, user):
         refresh = RefreshToken.for_user(user)
         return str(refresh.access_token)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
