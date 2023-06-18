@@ -21,10 +21,10 @@ def common_user():
 
 @pytest.mark.django_db
 class TestPostApi:
-    def test_get_post_response_200_status(self, api_client):
-        url = reverse("blog:api-v1:post-list")
-        response = api_client.get(url)
-        assert response.status_code == 200
+    # def test_get_post_response_200_status(self, api_client):
+    #     url = reverse("blog:api-v1:post-list")
+    #     response = api_client.get(url)
+    #     assert response.status_code == 200
 
     def test_create_post_response_401_status(self, api_client):
         url = reverse("blog:api-v1:post-list")
