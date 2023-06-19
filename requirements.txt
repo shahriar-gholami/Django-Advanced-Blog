@@ -35,6 +35,6 @@ pytest-django
 Faker
 
 # # background proccess and cache
-# celery
-# redis
+celery
+redis
 # django-redis
